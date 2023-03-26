@@ -7,8 +7,9 @@
 
 import UIKit
 import HealthKit
+import SwiftUI
 
-class ViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     let health = Health()
     
@@ -34,30 +35,39 @@ class ViewController: UIViewController {
     }()
     
     private lazy var healthButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton(primaryAction: UIAction{ _ in
+            let profile = self.health.readProfile().age
+            let newDate = DateFormatter()
+            newDate.dateFormat = "dd-MM-yyyy"
+            let stringDate = newDate.string(from: profile ?? Date.now)
+            self.healthText.text = stringDate
+        })
         button.setTitle("reload data", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 16)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.layer.cornerRadius = 19
         button.clipsToBounds = true
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
-    
-    @objc func buttonAction(sender: UIButton!) {
-        let profile = health.readProfile().age
-        let newDate = DateFormatter()
-        newDate.dateFormat = "dd-MM-yyyy"
-        let stringDate = newDate.string(from: profile ?? Date.now)
-        healthText.text = stringDate
-        
-    }
-    
     
     override func viewDidLoad() {
         view.backgroundColor = .white
         super.viewDidLoad()
+        healthAuth()
+        setupViews()
+        setupConstraints()
+    }
+    
+    private func setupViews() {
+        view.addSubview(verticalStackView)
+    }
+    private func setupConstraints() {
+        verticalStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        verticalStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    private func healthAuth() {
         health.authorizeHealthKit { (authorized,  error) -> Void in
             if authorized {
                 print("HealthKit authorization received.")
@@ -70,17 +80,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-        setupViews()
-        setupConstraints()
-    }
-    
-    func setupViews() {
-        view.addSubview(verticalStackView)
-    }
-    func setupConstraints() {
-        
-        verticalStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        verticalStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 }
 
