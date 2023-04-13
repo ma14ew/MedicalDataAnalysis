@@ -11,10 +11,12 @@
 		1758676E29D09878001A26DB /* OnboardingSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1758676D29D09878001A26DB /* OnboardingSwiftUI.swift */; };
 		1792BF0A29C8DF2900F2AB5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1792BF0929C8DF2900F2AB5E /* AppDelegate.swift */; };
 		1792BF0C29C8DF2900F2AB5E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1792BF0B29C8DF2900F2AB5E /* SceneDelegate.swift */; };
-		1792BF0E29C8DF2900F2AB5E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1792BF0D29C8DF2900F2AB5E /* LoginViewController.swift */; };
+		1792BF0E29C8DF2900F2AB5E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1792BF0D29C8DF2900F2AB5E /* MainViewController.swift */; };
 		1792BF1329C8DF2C00F2AB5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1792BF1229C8DF2C00F2AB5E /* Assets.xcassets */; };
 		1792BF1629C8DF2C00F2AB5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1792BF1429C8DF2C00F2AB5E /* LaunchScreen.storyboard */; };
 		1792BF1F29C8DF8E00F2AB5E /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1792BF1E29C8DF8E00F2AB5E /* Health.swift */; };
+		17F353BD29E604CC005DCD8A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F353BC29E604CC005DCD8A /* RootViewController.swift */; };
+		17F353BF29E60875005DCD8A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F353BE29E60875005DCD8A /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,12 +25,14 @@
 		1792BF0629C8DF2900F2AB5E /* FirstProjectCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstProjectCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1792BF0929C8DF2900F2AB5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1792BF0B29C8DF2900F2AB5E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1792BF0D29C8DF2900F2AB5E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1792BF0D29C8DF2900F2AB5E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1792BF1229C8DF2C00F2AB5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1792BF1529C8DF2C00F2AB5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1792BF1729C8DF2C00F2AB5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1792BF1D29C8DF3500F2AB5E /* FirstProjectCode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FirstProjectCode.entitlements; sourceTree = "<group>"; };
 		1792BF1E29C8DF8E00F2AB5E /* Health.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
+		17F353BC29E604CC005DCD8A /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		17F353BE29E60875005DCD8A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,27 +51,27 @@
 			children = (
 				1792BF0929C8DF2900F2AB5E /* AppDelegate.swift */,
 				1792BF0B29C8DF2900F2AB5E /* SceneDelegate.swift */,
+				17F353BC29E604CC005DCD8A /* RootViewController.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
 		};
-		1758676829CEE530001A26DB /* Resources  */ = {
+		1758676829CEE530001A26DB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1792BF1D29C8DF3500F2AB5E /* FirstProjectCode.entitlements */,
 				1792BF1229C8DF2C00F2AB5E /* Assets.xcassets */,
 				1792BF1429C8DF2C00F2AB5E /* LaunchScreen.storyboard */,
 			);
-			path = "Resources ";
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		1758676929CEE53E001A26DB /* Module 1 */ = {
+		1758676929CEE53E001A26DB /* MainModule  */ = {
 			isa = PBXGroup;
 			children = (
-				1792BF0D29C8DF2900F2AB5E /* LoginViewController.swift */,
-				1758676B29D096B1001A26DB /* OnboradingViewController.swift */,
-				1758676D29D09878001A26DB /* OnboardingSwiftUI.swift */,
+				1792BF0D29C8DF2900F2AB5E /* MainViewController.swift */,
 			);
-			path = "Module 1";
+			path = "MainModule ";
 			sourceTree = "<group>";
 		};
 		1758676A29D09667001A26DB /* HealthKit */ = {
@@ -97,14 +101,24 @@
 		1792BF0829C8DF2900F2AB5E /* FirstProjectCode */ = {
 			isa = PBXGroup;
 			children = (
-				1792BF1D29C8DF3500F2AB5E /* FirstProjectCode.entitlements */,
 				1758676729CEE4E4001A26DB /* Scene */,
-				1758676929CEE53E001A26DB /* Module 1 */,
+				17F353C029E6104F005DCD8A /* LoginModule */,
+				1758676929CEE53E001A26DB /* MainModule  */,
 				1758676A29D09667001A26DB /* HealthKit */,
 				1792BF1729C8DF2C00F2AB5E /* Info.plist */,
-				1758676829CEE530001A26DB /* Resources  */,
+				1758676829CEE530001A26DB /* Resources */,
 			);
 			path = FirstProjectCode;
+			sourceTree = "<group>";
+		};
+		17F353C029E6104F005DCD8A /* LoginModule */ = {
+			isa = PBXGroup;
+			children = (
+				1758676B29D096B1001A26DB /* OnboradingViewController.swift */,
+				17F353BE29E60875005DCD8A /* LoginViewController.swift */,
+				1758676D29D09878001A26DB /* OnboardingSwiftUI.swift */,
+			);
+			path = LoginModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,9 +191,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1792BF0E29C8DF2900F2AB5E /* LoginViewController.swift in Sources */,
+				1792BF0E29C8DF2900F2AB5E /* MainViewController.swift in Sources */,
 				1792BF1F29C8DF8E00F2AB5E /* Health.swift in Sources */,
 				1758676E29D09878001A26DB /* OnboardingSwiftUI.swift in Sources */,
+				17F353BD29E604CC005DCD8A /* RootViewController.swift in Sources */,
+				17F353BF29E60875005DCD8A /* LoginViewController.swift in Sources */,
 				1758676C29D096B1001A26DB /* OnboradingViewController.swift in Sources */,
 				1792BF0A29C8DF2900F2AB5E /* AppDelegate.swift in Sources */,
 				1792BF0C29C8DF2900F2AB5E /* SceneDelegate.swift in Sources */,
@@ -319,7 +335,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = FirstProjectCode/FirstProjectCode.entitlements;
+				CODE_SIGN_ENTITLEMENTS = FirstProjectCode/Resources/FirstProjectCode.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U5P97KCFM7;
@@ -351,7 +367,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = FirstProjectCode/FirstProjectCode.entitlements;
+				CODE_SIGN_ENTITLEMENTS = FirstProjectCode/Resources/FirstProjectCode.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U5P97KCFM7;

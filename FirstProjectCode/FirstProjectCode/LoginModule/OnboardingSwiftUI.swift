@@ -10,9 +10,9 @@ import SwiftUI
 
 struct LoginVC: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: LoginViewController, context: Context) {
-        
+
     }
-    
+
     func makeUIViewController(context: Context) -> LoginViewController {
         return LoginViewController()
     }

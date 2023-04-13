@@ -9,10 +9,9 @@ import UIKit
 import HealthKit
 import SwiftUI
 
-final class LoginViewController: UIViewController {
-    
+class MainViewController: UIViewController {
+    let root = RootViewController()
     let health = Health()
-    
     private lazy var verticalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -26,21 +25,13 @@ final class LoginViewController: UIViewController {
     
     private lazy var healthText: UILabel = {
         let text = UILabel(frame: CGRect(x: 220, y: 220, width: 100, height: 100))
-        let profile = health.readProfile().age
-        let newDate = DateFormatter()
-        newDate.dateFormat = "dd-MM-yyyy"
-        let stringDate = newDate.string(from: profile ?? Date.now)
-        text.text = stringDate
+        text.text = configureData()
         return text
     }()
     
     private lazy var healthButton: UIButton = {
         let button = UIButton(primaryAction: UIAction{ _ in
-            let profile = self.health.readProfile().age
-            let newDate = DateFormatter()
-            newDate.dateFormat = "dd-MM-yyyy"
-            let stringDate = newDate.string(from: profile ?? Date.now)
-            self.healthText.text = stringDate
+            self.healthText.text = self.configureData()
         })
         button.setTitle("reload data", for: .normal)
         button.setTitleColor(.black, for: .normal)
@@ -52,9 +43,9 @@ final class LoginViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
-        view.backgroundColor = .white
         super.viewDidLoad()
-        healthAuth()
+        view.backgroundColor = .systemBackground
+        navigationItem.hidesBackButton = true
         setupViews()
         setupConstraints()
     }
@@ -71,9 +62,9 @@ final class LoginViewController: UIViewController {
         health.authorizeHealthKit { (authorized,  error) -> Void in
             if authorized {
                 print("HealthKit authorization received.")
+                print(authorized)
             }
-            else
-            {
+            else {
                 print("HealthKit authorization denied!")
                 if error != nil {
                     print("\(String(describing: error))")
@@ -81,6 +72,38 @@ final class LoginViewController: UIViewController {
             }
         }
     }
+    
+    private func createAlert() -> UIAlertController {
+        let alert = UIAlertController(
+            title: "Ошибка",
+            message: "Нет доступа к данным, нужно дать доступ в настройках",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Хорошо", style: .default, handler: { (action:UIAlertAction!) in
+
+        }))
+        return alert
+    }
+    
+    private func configureData() -> String {
+        guard let profile = health.readProfile().age else {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                let alert = self.createAlert()
+                self.present(
+                    alert,
+                    animated: true,
+                    completion: nil
+                )
+            }
+            return "error"
+        }
+        let newDate = DateFormatter()
+        newDate.dateFormat = "dd-MM-yyyy"
+        let stringDate = newDate.string(from: profile)
+        return stringDate
+    }
+
 }
 
 
